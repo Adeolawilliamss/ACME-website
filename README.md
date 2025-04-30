@@ -1,5 +1,42 @@
-## Next.js App Router Course - Starter
+# ACME Website
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+A full-stack web application for managing invoices, customers, and messaging, built with the MERN stack (MongoDB, Express, React, Node.js).
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+## 📁 Project Structure
+
+
+## 🚀 Features
+
+- User Authentication (JWT-based)
+- Invoice Management
+- Customer Directory
+- Chat System (Static responses)
+- Responsive UI with Tailwind CSS
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: Node.js, Express.js, MongoDB (Mongoose)
+- **Auth**: JWT (Access & Refresh tokens)
+- **Deployment**: Frontend on Vercel, Backend on Render
+
+## 🔧 Setup Instructions
+
+### Backend
+
+```bash
+cd Backend
+npm install
+# Create config.env with your environment variables
+npm start
+
+### Frontend
+cd ACME-website
+npm install
+# Create .env.local with your environment variables (e.g. API base URL)
+npm run dev
+
+
+---
+
+Let me know if you want me to tailor this more specifically to your app’s features or deployment steps.
