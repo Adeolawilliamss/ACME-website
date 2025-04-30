@@ -22,6 +22,14 @@ A full-stack web application for managing invoices, customers, and messaging, bu
 
 ## 🔧 Setup Instructions
 
+### Frontend
+```bash
+cd ACME-website
+npm install
+# Create .env.local with your environment variables (e.g. API base URL)
+npm run dev
+```
+
 ### Backend
 
 ```bash
@@ -29,13 +37,7 @@ cd Backend
 npm install
 # Create config.env with your environment variables
 npm start
-
-### Frontend
-cd ACME-website
-npm install
-# Create .env.local with your environment variables (e.g. API base URL)
-npm run dev
-
+```
 
 ---
 
