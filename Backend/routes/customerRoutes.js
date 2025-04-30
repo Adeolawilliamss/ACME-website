@@ -5,7 +5,7 @@ const customerController = require('../controllers/customerController');
 //SUB MIDDLEWARE FOR THIS MINI-APPLICATION
 const router = express.Router();
 
-router.use(authController.protect);
+// router.use(authController.protect);
 
 router.post('/createCustomers', customerController.createCustomers);
 router.get('/', customerController.getAllCustomers);

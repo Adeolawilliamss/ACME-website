@@ -24,12 +24,12 @@ app.enable('trust proxy');
 
 const allowedOrigins = [
   'http://localhost:3000', // React default (Vite)
-  'https://gadgets-8unr.onrender.com',
+  'https://acme-website-115r.onrender.com',
 ];
 app.use(
   cors({
     origin: allowedOrigins,
-    credentials: true, // Allow cookies & authentication headers
+    credentials: true,
   }),
 );
 
@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.set('trust proxy', 2); // ✅ Trust only 2 proxy layer (Heroku, Vercel, etc.)
+app.set('trust proxy', 2);
 
 //Limit requests from same API
 const limiter = rateLimit({

@@ -6,6 +6,7 @@
 /ACME-website.pnp.js
 /ACME-website/coverage
 /ACME-website/env*.local
+/ACME-website/.env.local
 
 # Backend (Express)
 Backend/config.env
