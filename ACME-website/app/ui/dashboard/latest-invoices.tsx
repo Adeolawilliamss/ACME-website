@@ -26,7 +26,7 @@ export default function LatestInvoices() {
     const fetchLatestInvoices = async () => {
       try {
         const res = await axiosInstance.get(
-          "http://localhost:5000/api/invoices/LatestInvoices",
+          `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/LatestInvoices`,
           { withCredentials: true }
         );
         setLatestInvoices(res.data.data);

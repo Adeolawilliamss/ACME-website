@@ -23,7 +23,7 @@ export default function Page() {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/invoices/pages?query=${urlQuery}`,
+          `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/pages?query=${urlQuery}`,
           { withCredentials: true }
         );
         setTotalPages(res.data.totalPages);

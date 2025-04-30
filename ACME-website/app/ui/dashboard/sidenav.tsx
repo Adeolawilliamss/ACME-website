@@ -17,7 +17,7 @@ export default function SideNav() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/users/logout",
+       `${process.env.NEXT_PUBLIC_API_BASE}/api/users/logout`,
         {},
         { withCredentials: true }
       );
@@ -29,7 +29,7 @@ export default function SideNav() {
 
   const chatPage = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users/isLoggedIn', {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/users/isLoggedIn`, {
         withCredentials: true,
       });
   

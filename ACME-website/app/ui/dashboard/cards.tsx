@@ -27,7 +27,7 @@ export default function CardWrapper() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("http://localhost:5000/api/invoices/cards", {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/cards`, {
         withCredentials: true,
       });
       setData(res.data);

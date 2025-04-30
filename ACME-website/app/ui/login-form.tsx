@@ -19,7 +19,7 @@ export default function LoginForm() {
     setIsPending(true);
     try {
       await axios.post(
-        `http://localhost:5000/api/users/login`,
+       `${process.env.NEXT_PUBLIC_API_BASE}/api/users/login`,
         {
           email,
           password,

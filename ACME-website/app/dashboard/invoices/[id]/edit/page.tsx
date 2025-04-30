@@ -20,13 +20,16 @@ export default function EditPage({ params }: Params) {
     async function fetchData() {
       try {
         // 1️⃣ Fetch the invoice
-        const invRes = await axios.get(`http://localhost:5000/api/invoices/${id}`, {
-          withCredentials: true,
-        });
+        const invRes = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/${id}`,
+          {
+            withCredentials: true,
+          }
+        );
         setInvoice(invRes.data.data.invoice);
 
         // 2️⃣ Fetch & normalize customers
-        const custRes = await axios.get("http://localhost:5000/api/customers", {
+        const custRes = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/customers`, {
           withCredentials: true,
         });
         const raw: any[] = custRes.data.data.customers;
@@ -52,7 +55,9 @@ export default function EditPage({ params }: Params) {
   }
 
   if (!invoice) {
-    return <div className="text-center mt-10 text-red-500">Invoice not found.</div>;
+    return (
+      <div className="text-center mt-10 text-red-500">Invoice not found.</div>
+    );
   }
 
   return (

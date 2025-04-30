@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
-import axiosInstance from '@/app/lib/axios';
-import { AxiosError } from 'axios';
+import { useRouter } from "next/navigation";
+import axiosInstance from "@/app/lib/axios";
+import { AxiosError } from "axios";
 
 interface Customers {
   _id: string;
@@ -22,14 +22,17 @@ export default function InvoicesTable({ query }: { query: string }) {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const res = await axiosInstance.get(`http://localhost:5000/api/customers/`, {
-          withCredentials: true,
-        });
+        const res = await axiosInstance.get(
+          `${process.env.NEXT_PUBLIC_API_BASE}/api/customers/`,
+          {
+            withCredentials: true,
+          }
+        );
         setCustomers(res.data.data.customers || []);
       } catch (error) {
         const err = error as AxiosError;
         if (err.response && err.response.status === 401) {
-          router.push('/login-required');
+          router.push("/login-required");
         }
         console.error("Failed to fetch customers:", err);
       } finally {

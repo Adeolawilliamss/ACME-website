@@ -18,7 +18,7 @@ export default function Page() {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const res = await axiosInstance.get(`http://localhost:5000/api/customers/`, {
+        const res = await axiosInstance.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/customers`, {
           withCredentials: true,
         });
         setCustomers(res.data.data.customers);

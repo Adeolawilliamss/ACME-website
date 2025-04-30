@@ -19,7 +19,7 @@ export default function RevenueChart() {
     const fetchRevenue = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/invoices/RevenueChart",
+          `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/RevenueChart`,
           { withCredentials: true }
         );
         console.log(res)
