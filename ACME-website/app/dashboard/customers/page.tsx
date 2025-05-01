@@ -14,7 +14,7 @@ interface Customers {
   photo: string;
 }
 
-export default function InvoicesTable({ query }: { query: string }) {
+export default function Page() {
   const [customers, setCustomers] = useState<Customers[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
