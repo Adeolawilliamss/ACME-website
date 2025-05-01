@@ -2,8 +2,9 @@ import axios from 'axios';
 
 // Create a custom axios instance
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000', // Replace with your API base URL
-  withCredentials: true, // Always send cookies (JWT)
+  baseURL: process.env.NEXT_PUBLIC_API_BASE,
+  withCredentials: true,
+  timeout: 200000, // ← 2 minutes timeout
 });
 
 // Add a response interceptor

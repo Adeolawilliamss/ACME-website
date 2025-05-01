@@ -59,7 +59,7 @@ export default function InvoicesTable({ query }: { query: string }) {
                   <div>
                     <div className="mb-2 flex items-center">
                       <Image
-                        src={`http://localhost:5000/images/${customer.photo}`}
+                        src={`${process.env.NEXT_PUBLIC_API_BASE}/images/${customer.photo}`}
                         className="rounded-full"
                         width={28}
                         height={28}
@@ -96,7 +96,7 @@ export default function InvoicesTable({ query }: { query: string }) {
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
                       <Image
-                        src={`http://localhost:5000/images/${customer.photo}`}
+                        src={`${process.env.NEXT_PUBLIC_API_BASE}/images/${customer.photo}`}
                         className="rounded-full"
                         width={28}
                         height={28}

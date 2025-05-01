@@ -1,19 +1,14 @@
 /** @type {import('next').NextConfig} */
- 
 const nextConfig = {
-    experimental: {
-      ppr: 'incremental',
-    },
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'http',
-          hostname: 'localhost',
-          port: '5000',
-          pathname: '/images/**',
-        },
-      ],
-    },
-  };
-   
-  export default nextConfig;
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'acme-website-115r.onrender.com',
+        pathname: '/**',
+      },
+    ],
+  },
+};
+
+export default nextConfig;

@@ -33,7 +33,7 @@ export function DeleteInvoice({ id }: { id: string }) {
     }
     console.log("🗑  Deleting invoice with id:", id);
     try {
-      await axios.delete(`http://localhost:5000/api/invoices/${id}`, {
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/${id}`, {
         withCredentials: true,
       });
       window.location.reload();

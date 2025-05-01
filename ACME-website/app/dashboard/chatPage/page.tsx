@@ -33,7 +33,7 @@ export default function ChatPage() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/users/isLoggedIn', {
+        const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/users/isLoggedIn`, {
           withCredentials: true,
         });
         const user = data.data.user;
@@ -41,7 +41,7 @@ export default function ChatPage() {
         setCurrentRole(user.role);
 
         if (user.role === 'Admin') {
-          const usersRes = await axios.get('http://localhost:5000/api/users', {
+          const usersRes = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/users`, {
             withCredentials: true,
           });
           const mapped = usersRes.data.data.users
@@ -58,7 +58,7 @@ export default function ChatPage() {
   useEffect(() => {
     if (!userId) return;
 
-    socket = io('http://localhost:5000', { withCredentials: true } as any);
+    socket = io(`${process.env.NEXT_PUBLIC_API_BASE}/`, { withCredentials: true } as any);
     socket.emit('joinRoom', userId);
 
     const handleReceive = (msg: Message) => {

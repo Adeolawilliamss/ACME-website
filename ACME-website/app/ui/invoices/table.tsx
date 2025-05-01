@@ -31,7 +31,7 @@ export default function InvoicesTable({
     const fetchInvoices = async () => {
       try {
         const res = await axiosInstance.get(
-          "http://localhost:5000/api/invoices/filteredInvoice",
+          `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/filteredInvoice`,
           {
             withCredentials: true,
             headers: { "Cache-Control": "no-store" },
@@ -71,7 +71,7 @@ export default function InvoicesTable({
                   <div>
                     <div className="mb-2 flex items-center">
                       <Image
-                        src={`http://localhost:5000/images/${invoice.image_url}`}
+                        src={`${process.env.NEXT_PUBLIC_API_BASE}/images${invoice.image_url}`}
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}
@@ -130,7 +130,7 @@ export default function InvoicesTable({
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
                       <Image
-                        src={`http://localhost:5000/images/${invoice.image_url}`}
+                        src={`${process.env.NEXT_PUBLIC_API_BASE}/images/${invoice.image_url}`}
                         className="rounded-full"
                         width={28}
                         height={28}

@@ -24,7 +24,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/invoices/createInvoices",
+        `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/createInvoices`,
         {
           customer: customerId,
           amount: parseFloat(amount),

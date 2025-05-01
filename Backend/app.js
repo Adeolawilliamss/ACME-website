@@ -24,7 +24,7 @@ app.enable('trust proxy');
 
 const allowedOrigins = [
   'http://localhost:3000', // React default (Vite)
-  'https://acme-website-115r.onrender.com',
+  'https://acme-website-ten.vercel.app/',
 ];
 app.use(
   cors({

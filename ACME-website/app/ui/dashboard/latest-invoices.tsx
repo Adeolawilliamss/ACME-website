@@ -29,6 +29,7 @@ export default function LatestInvoices() {
           `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/LatestInvoices`,
           { withCredentials: true }
         );
+        console.log("Fetched invoices:", res.data.data); // 👈 Add this
         setLatestInvoices(res.data.data);
       } catch (error) {
         const err = error as AxiosError;
@@ -68,7 +69,7 @@ export default function LatestInvoices() {
               >
                 <div className="flex items-center">
                   <Image
-                    src={`http://localhost:5000/images/${invoice.image_url}`}
+                    src={`${process.env.NEXT_PUBLIC_API_BASE}/images${invoice.image_url}`}
                     alt={`${invoice.name}'s profile picture`}
                     className="mr-4 rounded-full"
                     width={32}

@@ -2,7 +2,7 @@
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "@/app/lib/axios";
 
 interface Invoice {
   id: string;
@@ -38,9 +38,8 @@ export default function Search({ placeholder, query, setQuery }: SearchProps) {
 
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:5000/api/invoices/search", {
+        const res = await axiosInstance.get('/api/invoices/search', {
           params: { query, page: 1 },
-          withCredentials: true,
         });
         setResults(res.data.invoices || []);
       } catch (error) {
