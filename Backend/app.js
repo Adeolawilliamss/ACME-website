@@ -24,7 +24,7 @@ app.enable('trust proxy');
 
 const allowedOrigins = [
   'http://localhost:3000', // React default (Vite)
-  'https://acme-website-ten.vercel.app/',
+  'https://acme-website-bice.vercel.app',
 ];
 app.use(
   cors({
@@ -32,6 +32,8 @@ app.use(
     credentials: true,
   }),
 );
+
+app.options('*', cors()); // enable preflight for all routes
 
 // ✅ Serve user-uploaded files from /public
 app.use(express.static(path.join(__dirname, 'public')));
