@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { AxiosError } from 'axios';
 
 type Customer = {
-  id: string;
+  _id: string;
   name: string;
 };
 
@@ -18,9 +18,7 @@ export default function Page() {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const res = await axiosInstance.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/customers`, {
-          withCredentials: true,
-        });
+        const res = await axiosInstance.get(`/api/customers`);
         setCustomers(res.data.data.customers);
       } catch (error) {
         const err = error as AxiosError;

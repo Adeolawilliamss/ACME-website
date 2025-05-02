@@ -20,7 +20,7 @@ export default function EditInvoiceForm({
 }) {
   const router = useRouter();
   const [customerId, setCustomerId] = useState(invoice.customer_id);
-  const [amount, setAmount] = useState(invoice.amount);
+  const [amount, setAmount] = useState(invoice.amount.toString());
   const [status, setStatus] = useState(invoice.status);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -31,11 +31,11 @@ export default function EditInvoiceForm({
     setError(null);
     try {
       console.log("Updating invoice:", invoice.id);
-      await axios.patch(`http://localhost:5000/api/invoices/${invoice.id}`, {
+      await axios.patch(`${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/${invoice.id}`, {
         customerId,
-        amount,
+        amount: parseFloat(amount),
         status: status.charAt(0).toUpperCase() + status.slice(1),
-      },{ withCredentials: true});
+      }, { withCredentials: true });      
       router.push("/dashboard/invoices");
     } catch (err: any) {
       console.error(err.response?.data || err);
@@ -51,9 +51,11 @@ export default function EditInvoiceForm({
 
       {/* Customer */}
       <div>
-        <label className="block text-sm font-medium">Customer</label>
+        <label htmlFor="customer"
+         className="block text-sm font-medium">Customer</label>
         <div className="relative mt-1">
           <select
+            id="customer"
             defaultValue={invoice.customer_id}
             onChange={(e) => setCustomerId(e.target.value)}
             className="block w-full rounded-md border-gray-300 pl-10 py-2"
@@ -62,7 +64,7 @@ export default function EditInvoiceForm({
               Select a customer
             </option>
             {customers.map((c) => (
-              <option key={c.id} value={c.id}>
+              <option key={c._id} value={c._id}>
                 {c.name}
               </option>
             ))}
@@ -73,13 +75,15 @@ export default function EditInvoiceForm({
 
       {/* Amount */}
       <div>
-        <label className="block text-sm font-medium">Amount (USD)</label>
+        <label htmlFor="amount"
+         className="block text-sm font-medium">Amount (USD)</label>
         <div className="relative mt-1">
           <input
+            id="amount"
             type="number"
             step="0.01"
             value={amount}
-            onChange={(e) => setAmount(parseFloat(e.target.value))}
+            onChange={(e) => setAmount(e.target.value)}
             className="block w-full rounded-md border-gray-300 pl-10 py-2"
           />
           <CurrencyDollarIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />

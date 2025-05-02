@@ -5,7 +5,7 @@ import Image from "next/image";
 import { UpdateInvoice, DeleteInvoice } from "@/app/ui/invoices/buttons";
 import InvoiceStatus from "@/app/ui/invoices/status";
 import { formatDateToLocal, formatCurrency } from "@/app/lib/utils";
-import axiosInstance from '@/app/lib/axios';
+import axiosInstance from "@/app/lib/axios";
 
 interface Invoice {
   id: string;
@@ -30,18 +30,14 @@ export default function InvoicesTable({
   useEffect(() => {
     const fetchInvoices = async () => {
       try {
-        const res = await axiosInstance.get(
-          `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/filteredInvoice`,
-          {
-            withCredentials: true,
-            headers: { "Cache-Control": "no-store" },
-            params: {
-              query,
-              page: currentPage,
-              t: Date.now(),           // ← this makes every URL unique
-            },
-          }
-        );
+        const res = await axiosInstance.get(`/api/invoices/filteredInvoice`, {
+          headers: { "Cache-Control": "no-store" },
+          params: {
+            query,
+            page: currentPage,
+            t: Date.now(), // ← this makes every URL unique
+          },
+        });
         console.log(res.data.invoices);
         setInvoices(res.data.invoices || []);
       } catch (error) {

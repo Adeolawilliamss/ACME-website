@@ -17,7 +17,7 @@ export function CreateInvoice() {
 export function UpdateInvoice({ id }: { id: string }) {
   return (
     <Link
-      href={`/dashboard/invoices/${id}/edit`}
+      href={`/dashboard/invoices/edit?id=${id}`} // ← pass ID here
       className="rounded-md border p-2 hover:bg-gray-100"
     >
       <PencilIcon className="w-5" />
@@ -33,9 +33,12 @@ export function DeleteInvoice({ id }: { id: string }) {
     }
     console.log("🗑  Deleting invoice with id:", id);
     try {
-      await axios.delete(`${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/${id}`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/${id}`,
+        {
+          withCredentials: true,
+        }
+      );
       window.location.reload();
     } catch (error) {
       console.error("Failed to delete invoice:", error);

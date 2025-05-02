@@ -77,7 +77,7 @@ export type FormattedCustomersTable = {
 };
 
 export type CustomerField = {
-  id: string;
+  _id: string;
   name: string;
 };
 

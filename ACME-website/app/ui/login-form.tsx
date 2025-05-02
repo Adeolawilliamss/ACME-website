@@ -6,7 +6,7 @@ import { lusitana } from "@/app/ui/fonts";
 import { AtSymbolIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "@/app/ui/button";
-import axios from "axios";
+import axiosInstance from "@/app/lib/axios";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -18,14 +18,10 @@ export default function LoginForm() {
     e.preventDefault();
     setIsPending(true);
     try {
-      await axios.post(
-       `${process.env.NEXT_PUBLIC_API_BASE}/api/users/login`,
-        {
-          email,
-          password,
-        },
-        { withCredentials: true }
-      );
+      await axiosInstance.post(`/api/users/login`, {
+        email,
+        password,
+      });
       setIsPending(false);
       router.push("/dashboard");
     } catch (err) {

@@ -7,7 +7,7 @@ import {
   PowerIcon,
   ChatBubbleBottomCenterIcon,
 } from "@heroicons/react/24/outline";
-import axios from "axios";
+import axiosInstance from "@/app/lib/axios";
 import { useRouter } from "next/navigation";
 import DarkMode from "../darkmode/page";
 
@@ -16,12 +16,8 @@ export default function SideNav() {
 
   const handleLogout = async () => {
     try {
-      await axios.post(
-       `${process.env.NEXT_PUBLIC_API_BASE}/api/users/logout`,
-        {},
-        { withCredentials: true }
-      );
-      router.push("/"); // Redirect after successful logout
+      await axiosInstance.post(`/api/users/logout`, {});
+      router.push("/");
     } catch (err) {
       console.error("Logout failed:", err);
     }
@@ -29,22 +25,19 @@ export default function SideNav() {
 
   const chatPage = async () => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/users/isLoggedIn`, {
-        withCredentials: true,
-      });
-  
+      const response = await axiosInstance.get(`/api/users/isLoggedIn`);
+
       const user = response.data.data.user;
-  
-      if (user.role === 'Admin') {
-        router.push('/dashboard/chatPage'); // Admin can select users from chatPage
+
+      if (user.role === "Admin") {
+        router.push("/dashboard/chatPage"); // Admin can select users from chatPage
       } else {
         router.push(`/dashboard/chatPage?userId=${user.id}`); // Normal user
       }
     } catch (err) {
-      console.log('Redirect to chat page failed:', err);
+      console.log("Redirect to chat page failed:", err);
     }
   };
-  
 
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
@@ -60,9 +53,9 @@ export default function SideNav() {
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 dark:bg-black md:block"></div>
 
-      <div className=" flex pt-4 border-t justify-between mt-4 space-x-2 md:flex-col md:space-x-0 md:space-y-2 border-gray-200 dark:border-gray-700">
-        <DarkMode />
-      </div>
+        <div className=" flex pt-4 border-t justify-between mt-4 space-x-2 md:flex-col md:space-x-0 md:space-y-2 border-gray-200 dark:border-gray-700">
+          <DarkMode />
+        </div>
 
         <button
           onClick={chatPage}
