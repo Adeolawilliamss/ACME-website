@@ -19,7 +19,7 @@ const server = http.createServer(app);
 // Create Socket.io server
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000"], // your frontend URL
+    origin: ['http://localhost:3000', 'https://acme-website-bice.vercel.app'],
     credentials: true,
   },
 });
@@ -46,7 +46,10 @@ io.on('connection', (socket) => {
 });
 
 // Database connection
-const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD,
+);
 mongoose.set('bufferTimeoutMS', 30000);
 
 mongoose
