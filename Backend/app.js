@@ -16,7 +16,10 @@ const customerRouter = require('./routes/customerRoutes');
 const messageRouter = require('./routes/messageRoutes');
 
 const dev = process.env.NODE_ENV !== 'production';
-const nextApp = next({ dev });
+const nextApp = next({
+  dev,
+  dir: path.join(__dirname, '../ACME-website'),
+});
 const handle = nextApp.getRequestHandler();
 
 // Starts express App
