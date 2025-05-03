@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const http = require('http');
+const { Server } = require('socket.io');
 
 process.on('uncaughtException', (err) => {
   console.log(err.name, err.message);
@@ -9,9 +11,6 @@ process.on('uncaughtException', (err) => {
 
 dotenv.config({ path: './config.env' });
 const app = require('./app');
-
-const http = require('http');
-const { Server } = require('socket.io');
 
 // Create HTTP server from express app
 const server = http.createServer(app);

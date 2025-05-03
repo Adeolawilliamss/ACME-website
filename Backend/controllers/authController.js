@@ -27,7 +27,7 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: 'None',
-    path: '/',
+    domain: 'acme-website-115r.onrender.com',
   });
 
   // Set refresh token in a separate cookie
@@ -36,6 +36,7 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: 'None',
+    domain: 'acme-website-115r.onrender.com',
   });
 
   user.password = undefined; // Hide password in response

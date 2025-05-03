@@ -33,7 +33,7 @@ app.use(
   }),
 );
 
-app.options('*', cors()); // enable preflight for all routes
+// app.options('*', cors());
 
 // ✅ Serve user-uploaded files from /public
 app.use(express.static(path.join(__dirname, 'public')));
