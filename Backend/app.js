@@ -24,7 +24,7 @@ app.enable('trust proxy');
 
 const allowedOrigins = [
   'http://localhost:3000', // React default (Vite)
-  'https://acme-website-bice.vercel.app',
+  'https://acme-website-git-main-adeolawilliamss-projects.vercel.app',
 ];
 app.use(
   cors({
