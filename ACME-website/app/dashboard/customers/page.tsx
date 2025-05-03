@@ -54,7 +54,7 @@ export default function Page() {
                   <div>
                     <div className="mb-2 flex items-center">
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_API_BASE}/images/${customer.photo}`}
+                        src={`/images/${customer.photo}`}
                         className="rounded-full"
                         width={28}
                         height={28}

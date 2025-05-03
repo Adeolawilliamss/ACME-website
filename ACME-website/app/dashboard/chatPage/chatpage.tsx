@@ -54,7 +54,7 @@ export default function ChatPage() {
   useEffect(() => {
     if (!userId) return;
 
-    socket = io(`${process.env.NEXT_PUBLIC_API_BASE}/`, {
+    socket = io(`/`, {
       withCredentials: true,
     } as any);
     socket.emit("joinRoom", userId);

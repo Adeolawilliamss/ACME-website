@@ -67,7 +67,7 @@ export default function InvoicesTable({
                   <div>
                     <div className="mb-2 flex items-center">
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_API_BASE}/images${invoice.image_url}`}
+                        src={`/images${invoice.image_url}`}
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}

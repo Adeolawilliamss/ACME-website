@@ -35,6 +35,7 @@ nextApp.prepare().then(() => {
     max: 2000,
     windowMs: 60 * 60 * 1000,
     message: 'Too many requests from this IP, try again in an hour!',
+    proxy: true,
   });
   app.use('/api', limiter);
 
