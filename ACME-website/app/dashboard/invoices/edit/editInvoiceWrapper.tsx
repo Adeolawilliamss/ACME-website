@@ -20,8 +20,8 @@ export default function EditInvoiceWrapper() {
     async function fetchData() {
       try {
         const [invRes, custRes] = await Promise.all([
-          axiosInstance.get(`/api/invoices/${id}`),
-          axiosInstance.get(`/api/customers`),
+          axiosInstance.get(`/invoices/${id}`),
+          axiosInstance.get(`/customers`),
         ]);
 
         setInvoice(invRes.data.data.invoice);

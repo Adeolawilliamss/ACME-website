@@ -11,7 +11,7 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Button } from "@/app/ui/button";
-import axios from "axios";
+import axiosInstance from "@/app/lib/axios";
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   const [customerId, setCustomerId] = useState("");
@@ -23,15 +23,11 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
     e.preventDefault();
 
     try {
-      await axios.post(
-        `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/createInvoices`,
-        {
-          customer: customerId,
-          amount: parseFloat(amount),
-          status,
-        },
-        { withCredentials: true }
-      );
+      await axiosInstance.post(`/invoices/createInvoices`, {
+        customer: customerId,
+        amount: parseFloat(amount),
+        status,
+      });
       // Redirect to invoices page after success
       router.push("/dashboard/invoices");
     } catch (err) {

@@ -1,6 +1,6 @@
 import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import axios from "axios";
+import axiosInstance from "@/app/lib/axios";
 
 export function CreateInvoice() {
   return (
@@ -33,12 +33,7 @@ export function DeleteInvoice({ id }: { id: string }) {
     }
     console.log("🗑  Deleting invoice with id:", id);
     try {
-      await axios.delete(
-        `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/${id}`,
-        {
-          withCredentials: true,
-        }
-      );
+      await axiosInstance.delete(`/api/invoices/${id}`);
       window.location.reload();
     } catch (error) {
       console.error("Failed to delete invoice:", error);

@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { lusitana } from "@/app/ui/fonts";
-import axios from "axios";
+import axiosInstance from "@/app/lib/axios";
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -27,9 +27,7 @@ export default function CardWrapper() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/cards`, {
-        withCredentials: true,
-      });
+      const res = await axiosInstance.get(`/invoices/cards`);
       setData(res.data);
     }
 

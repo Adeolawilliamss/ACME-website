@@ -16,7 +16,7 @@ export default function SideNav() {
 
   const handleLogout = async () => {
     try {
-      await axiosInstance.post(`/api/users/logout`, {});
+      await axiosInstance.post(`/users/logout`, {});
       router.push("/");
     } catch (err) {
       console.error("Logout failed:", err);
@@ -25,7 +25,7 @@ export default function SideNav() {
 
   const chatPage = async () => {
     try {
-      const response = await axiosInstance.get(`/api/users/isLoggedIn`);
+      const response = await axiosInstance.get(`/users/isLoggedIn`);
 
       const user = response.data.data.user;
 

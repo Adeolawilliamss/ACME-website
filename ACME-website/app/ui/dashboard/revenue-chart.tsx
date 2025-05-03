@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { CalendarIcon } from "@heroicons/react/24/outline";
 import { lusitana } from "@/app/ui/fonts";
 import { generateYAxis } from "@/app/lib/utils";
-import axios from "axios";
+import axiosInstance from "@/app/lib/axios";
 
 interface RevenueItem {
   month: string;
@@ -18,11 +18,8 @@ export default function RevenueChart() {
   useEffect(() => {
     const fetchRevenue = async () => {
       try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/RevenueChart`,
-          { withCredentials: true }
-        );
-        console.log(res)
+        const res = await axiosInstance.get(`/invoices/RevenueChart`);
+        console.log(res);
         setRevenue(res.data.data);
       } catch (error) {
         console.error("Error fetching revenue data:", error);
@@ -48,7 +45,9 @@ export default function RevenueChart() {
 
   return (
     <div className="w-full md:col-span-4">
-      <h2 className={`${lusitana.className} mb-4 text-xl dark:text-white md:text-2xl`}>
+      <h2
+        className={`${lusitana.className} mb-4 text-xl dark:text-white md:text-2xl`}
+      >
         Recent Revenue
       </h2>
 

@@ -38,7 +38,7 @@ export default function Search({ placeholder, query, setQuery }: SearchProps) {
 
       setLoading(true);
       try {
-        const res = await axiosInstance.get('/api/invoices/search', {
+        const res = await axiosInstance.get('/invoices/search', {
           params: { query, page: 1 },
         });
         setResults(res.data.invoices || []);

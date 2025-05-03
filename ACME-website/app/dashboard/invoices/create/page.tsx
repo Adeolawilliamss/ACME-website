@@ -18,7 +18,7 @@ export default function Page() {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const res = await axiosInstance.get(`/api/customers`);
+        const res = await axiosInstance.get(`/customers`);
         setCustomers(res.data.data.customers);
       } catch (error) {
         const err = error as AxiosError;

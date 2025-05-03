@@ -23,7 +23,7 @@ export default function InvoicesPage() {
       setLoading(true);
       try {
         const res = await axiosInstance.get(
-          `/api/invoices/pages?query=${urlQuery}`
+          `/invoices/pages?query=${urlQuery}`
         );
         setTotalPages(res.data.totalPages);
       } catch (err) {

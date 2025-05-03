@@ -16,12 +16,7 @@ const app = require('./app');
 const server = http.createServer(app);
 
 // Create Socket.io server
-const io = new Server(server, {
-  cors: {
-    origin: ['http://localhost:3000', 'https://acme-website-bice.vercel.app'],
-    credentials: true,
-  },
-});
+const io = new Server(server);
 
 // Setup socket.io logic
 io.on('connection', (socket) => {

@@ -22,14 +22,14 @@ export default function Page() {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const res = await axiosInstance.get(`/api/customers/`);
+        const res = await axiosInstance.get("/customers");
         setCustomers(res.data.data.customers || []);
       } catch (error) {
         const err = error as AxiosError;
         if (err.response && err.response.status === 401) {
           router.push("/login-required");
         }
-        console.error("Failed to fetch customers:", err);
+        console.error("Failed to fetch customers:", error);
       } finally {
         setLoading(false);
       }

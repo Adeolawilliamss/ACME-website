@@ -18,7 +18,7 @@ export default function LoginForm() {
     e.preventDefault();
     setIsPending(true);
     try {
-      await axiosInstance.post(`/api/users/login`, {
+      await axiosInstance.post(`/users/login`, {
         email,
         password,
       });

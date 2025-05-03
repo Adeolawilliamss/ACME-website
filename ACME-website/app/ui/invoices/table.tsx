@@ -30,7 +30,7 @@ export default function InvoicesTable({
   useEffect(() => {
     const fetchInvoices = async () => {
       try {
-        const res = await axiosInstance.get(`/api/invoices/filteredInvoice`, {
+        const res = await axiosInstance.get(`/invoices/filteredInvoice`, {
           headers: { "Cache-Control": "no-store" },
           params: {
             query,

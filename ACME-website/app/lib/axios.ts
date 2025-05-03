@@ -4,9 +4,11 @@ import 'nprogress/nprogress.css';
 
 // Create a custom axios instance
 const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE,
+  baseURL:
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:5000/api'
+    : '/api',
   withCredentials: true,
-  timeout: 30000,
 });
 
 // Configure NProgress

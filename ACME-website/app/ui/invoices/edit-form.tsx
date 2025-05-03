@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import axiosInstance from "@/app/lib/axios";
 import { InvoiceForm, CustomerField } from "@/app/lib/definitions";
 import { Button } from "@/app/ui/button";
 import {
@@ -31,11 +31,11 @@ export default function EditInvoiceForm({
     setError(null);
     try {
       console.log("Updating invoice:", invoice.id);
-      await axios.patch(`${process.env.NEXT_PUBLIC_API_BASE}/api/invoices/${invoice.id}`, {
+      await axiosInstance.patch(`/invoices/${invoice.id}`, {
         customerId,
         amount: parseFloat(amount),
         status: status.charAt(0).toUpperCase() + status.slice(1),
-      }, { withCredentials: true });      
+      });
       router.push("/dashboard/invoices");
     } catch (err: any) {
       console.error(err.response?.data || err);
@@ -51,8 +51,9 @@ export default function EditInvoiceForm({
 
       {/* Customer */}
       <div>
-        <label htmlFor="customer"
-         className="block text-sm font-medium">Customer</label>
+        <label htmlFor="customer" className="block text-sm font-medium">
+          Customer
+        </label>
         <div className="relative mt-1">
           <select
             id="customer"
@@ -75,8 +76,9 @@ export default function EditInvoiceForm({
 
       {/* Amount */}
       <div>
-        <label htmlFor="amount"
-         className="block text-sm font-medium">Amount (USD)</label>
+        <label htmlFor="amount" className="block text-sm font-medium">
+          Amount (USD)
+        </label>
         <div className="relative mt-1">
           <input
             id="amount"

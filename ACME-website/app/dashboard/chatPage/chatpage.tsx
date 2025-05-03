@@ -33,13 +33,13 @@ export default function ChatPage() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axiosInstance.get(`/api/users/isLoggedIn`);
+        const { data } = await axiosInstance.get(`/users/isLoggedIn`);
         const user = data.data.user;
         setCurrentUserName(user.name);
         setCurrentRole(user.role);
 
         if (user.role === "Admin") {
-          const usersRes = await axiosInstance.get(`/api/users`);
+          const usersRes = await axiosInstance.get(`/users`);
           const mapped = usersRes.data.data.users
             .filter((u: any) => u.role !== "Admin")
             .map((u: any) => ({ id: u._id, name: u.name }));
