@@ -23,17 +23,27 @@ app.enable('trust proxy');
 //GLOBAL MIDDLEWARES:THESE ARE APPLIED TO ALL FILES
 
 const allowedOrigins = [
-  'http://localhost:3000', // React default (Vite)
+  'http://localhost:3000',
   'https://acme-website-bice.vercel.app',
 ];
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  }),
-);
 
-// app.options('*', cors());
+const dynamicCors = cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow non-browser requests
+
+    if (
+      allowedOrigins.includes(origin) ||
+      /^https:\/\/acme-website.*\.vercel\.app$/.test(origin)
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+});
+
+app.use(dynamicCors);
 
 // ✅ Serve user-uploaded files from /public
 app.use(express.static(path.join(__dirname, 'public')));

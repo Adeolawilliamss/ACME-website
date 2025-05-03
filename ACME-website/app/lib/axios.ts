@@ -6,7 +6,7 @@ import 'nprogress/nprogress.css';
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE,
   withCredentials: true,
-  timeout: 10000,
+  timeout: 30000,
 });
 
 // Configure NProgress
