@@ -6,12 +6,14 @@ import { lusitana } from "@/app/ui/fonts";
 import { AtSymbolIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "@/app/ui/button";
+import { useAlert } from "../context/alertContext";
 import axiosInstance from "@/app/lib/axios";
 
 export default function LoginForm() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { showAlert } = useAlert();
   const [isPending, setIsPending] = useState(false);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,6 +27,7 @@ export default function LoginForm() {
       setIsPending(false);
       router.push("/dashboard");
     } catch (err) {
+      showAlert("error", "Invalid Email and Password");
       console.error("Failed to login:", err);
     }
   };
