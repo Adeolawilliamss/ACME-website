@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "6802d5023bcf840615a983ff",
+    "user": "661db8f92d7f29e7be123456",
+    "name": "Michael Novotny",
+    "email": "michael@novotny.com",
+    "__v": 0,
+    "photo": "michael_novotny.jpg"
+  },
+  {
+    "_id": "6802d5023bcf840615a98402",
+    "user": "661db8f92d7f29e7be123456",
+    "name": "Lee Robinson",
+    "email": "lee@robinson.com",
+    "__v": 0,
+    "photo": "lee_robinson.jpg"
+  },
+  {
+    "_id": "6802d5023bcf840615a98403",
+    "user": "661db8f92d7f29e7be123456",
+    "name": "Evil Rabbit",
+    "email": "evil@rabbit.com",
+    "__v": 0,
+    "photo": "evil_rabbit.jpg"
+  },
+  {
+    "_id": "6802d5023bcf840615a98404",
+    "user": "661db8f92d7f29e7be123456",
+    "name": "Amy Burns",
+    "email": "amy@burns.com",
+    "__v": 0,
+    "photo": "amy_burns.jpg"
+  },
+  {
+    "_id": "6802d5023bcf840615a98400",
+    "user": "661db8f92d7f29e7be123456",
+    "name": "Delba de Oliveira",
+    "email": "mdelba@oliveira.com",
+    "__v": 0,
+    "photo": "delba_de_oliveira.jpg"
+  },
+  {
+    "_id": "6802d5023bcf840615a98401",
+    "user": "661db8f92d7f29e7be123456",
+    "name": "Balazs Orban",
+    "email": "balazs@orban.com",
+    "__v": 0,
+    "photo": "balazs_orban.jpg"
+  }
+]

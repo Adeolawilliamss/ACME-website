@@ -1,0 +1,310 @@
+[
+  {
+    "_id": "680396b3b9bacb9aec249358",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98400",
+      "name": "Delba de Oliveira",
+      "email": "mdelba@oliveira.com",
+      "photo": "delba_de_oliveira.jpg"
+    },
+    "amount": 50,
+    "status": "Paid",
+    "date": "2023-08-19T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249357",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a983ff",
+      "name": "Michael Novotny",
+      "email": "michael@novotny.com",
+      "photo": "michael_novotny.jpg"
+    },
+    "amount": 448,
+    "status": "Paid",
+    "date": "2023-09-10T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249359",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98401",
+      "name": "Balazs Orban",
+      "email": "balazs@orban.com",
+      "photo": "balazs_orban.jpg"
+    },
+    "amount": 345.77,
+    "status": "Pending",
+    "date": "2023-08-05T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec24935e",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98401",
+      "name": "Balazs Orban",
+      "email": "balazs@orban.com",
+      "photo": "balazs_orban.jpg"
+    },
+    "amount": 85.46,
+    "status": "Paid",
+    "date": "2023-06-07T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249360",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98403",
+      "name": "Evil Rabbit",
+      "email": "evil@rabbit.com",
+      "photo": "evil_rabbit.jpg"
+    },
+    "amount": 157.95,
+    "status": "Pending",
+    "date": "2022-12-06T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249361",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98400",
+      "name": "Delba de Oliveira",
+      "email": "mdelba@oliveira.com",
+      "photo": "delba_de_oliveira.jpg"
+    },
+    "amount": 203.48,
+    "status": "Pending",
+    "date": "2022-11-14T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249362",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98404",
+      "name": "Amy Burns",
+      "email": "amy@burns.com",
+      "photo": "amy_burns.jpg"
+    },
+    "amount": 30.4,
+    "status": "Paid",
+    "date": "2022-10-29T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249363",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98402",
+      "name": "Lee Robinson",
+      "email": "lee@robinson.com",
+      "photo": "lee_robinson.jpg"
+    },
+    "amount": 100,
+    "status": "Paid",
+    "date": "2022-06-05T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249364",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a983ff",
+      "name": "Michael Novotny",
+      "email": "michael@novotny.com",
+      "photo": "michael_novotny.jpg"
+    },
+    "amount": 448,
+    "status": "Paid",
+    "date": "2023-09-10T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249366",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98401",
+      "name": "Balazs Orban",
+      "email": "balazs@orban.com",
+      "photo": "balazs_orban.jpg"
+    },
+    "amount": 345.77,
+    "status": "Pending",
+    "date": "2023-08-05T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249367",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98402",
+      "name": "Lee Robinson",
+      "email": "lee@robinson.com",
+      "photo": "lee_robinson.jpg"
+    },
+    "amount": 542.46,
+    "status": "Pending",
+    "date": "2023-07-16T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249369",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98404",
+      "name": "Amy Burns",
+      "email": "amy@burns.com",
+      "photo": "amy_burns.jpg"
+    },
+    "amount": 125,
+    "status": "Paid",
+    "date": "2023-06-17T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec24936a",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a983ff",
+      "name": "Michael Novotny",
+      "email": "michael@novotny.com",
+      "photo": "michael_novotny.jpg"
+    },
+    "amount": 325.45,
+    "status": "Paid",
+    "date": "2023-06-09T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec24936d",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98403",
+      "name": "Evil Rabbit",
+      "email": "evil@rabbit.com",
+      "photo": "evil_rabbit.jpg"
+    },
+    "amount": 157.95,
+    "status": "Pending",
+    "date": "2022-12-06T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec24936e",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98400",
+      "name": "Delba de Oliveira",
+      "email": "mdelba@oliveira.com",
+      "photo": "delba_de_oliveira.jpg"
+    },
+    "amount": 223.48,
+    "status": "Paid",
+    "date": "2022-11-14T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec24936f",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98404",
+      "name": "Amy Burns",
+      "email": "amy@burns.com",
+      "photo": "amy_burns.jpg"
+    },
+    "amount": 30.4,
+    "status": "Paid",
+    "date": "2022-10-29T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249370",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98402",
+      "name": "Lee Robinson",
+      "email": "lee@robinson.com",
+      "photo": "lee_robinson.jpg"
+    },
+    "amount": 10,
+    "status": "Paid",
+    "date": "2022-06-05T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec249368",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98403",
+      "name": "Evil Rabbit",
+      "email": "evil@rabbit.com",
+      "photo": "evil_rabbit.jpg"
+    },
+    "amount": 600,
+    "status": "Paid",
+    "date": "2023-06-27T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680396b3b9bacb9aec24936c",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98401",
+      "name": "Balazs Orban",
+      "email": "balazs@orban.com",
+      "photo": "balazs_orban.jpg"
+    },
+    "amount": 89.45,
+    "status": "Paid",
+    "date": "2023-06-03T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "680b8ef3da0df9617d8dfb91",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98403",
+      "name": "Evil Rabbit",
+      "email": "evil@rabbit.com",
+      "photo": "evil_rabbit.jpg"
+    },
+    "amount": 200,
+    "status": "Paid",
+    "date": "2025-04-25T13:32:35.569Z",
+    "__v": 0
+  },
+  {
+    "_id": "680cd64eae97a428cfdcbd98",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98401",
+      "name": "Balazs Orban",
+      "email": "balazs@orban.com",
+      "photo": "balazs_orban.jpg"
+    },
+    "amount": 300,
+    "status": "Paid",
+    "date": "2025-04-26T12:49:18.280Z",
+    "__v": 0
+  },
+  {
+    "_id": "680f72d4c206c101bd592709",
+    "user": "6802bb0d876095588f179b63",
+    "customer": {
+      "_id": "6802d5023bcf840615a98403",
+      "name": "Evil Rabbit",
+      "email": "evil@rabbit.com",
+      "photo": "evil_rabbit.jpg"
+    },
+    "amount": 400,
+    "status": "Pending",
+    "date": "2025-04-28T12:21:40.303Z",
+    "__v": 0
+  }
+]

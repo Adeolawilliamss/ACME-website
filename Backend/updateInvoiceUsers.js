@@ -1,36 +1,33 @@
-// updateInvoiceUsers.js
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Invoice = require('./models/invoiceModel');
 
 dotenv.config({ path: './config.env' });
 
-async function updateInvoiceUsers() {
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD,
+);
+
+mongoose
+  .connect(DB)
+  .then(() => console.log('✅ DB connection successful!'))
+  .catch((err) => console.error('❌ DB connection error:', err));
+
+const updateUserOnInvoices = async () => {
   try {
-    // 1) connect
-    await mongoose.connect(
-      process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD),
-    );
-    console.log('✅ Connected to MongoDB');
+    const newUserId = '6818c76b67bc93e9fc4c49e1';
 
-    // 2) build the new ObjectId
-    const newUserId = new mongoose.Types.ObjectId('6802bb0d876095588f179b63');
-
-    // 3) update ALL invoices in one go
-    const result = await Invoice.updateMany(
-      {}, // match all documents
-      { $set: { user: newUserId } },
-    );
+    const result = await Invoice.updateMany({}, { user: newUserId });
 
     console.log(
-      `✅ Updated ${result.modifiedCount} invoices to user ${newUserId}`,
+      `✅ Updated ${result.modifiedCount} invoices with new user ID.`,
     );
   } catch (err) {
     console.error('❌ Error updating invoices:', err);
   } finally {
-    await mongoose.disconnect();
-    console.log('🔌 Disconnected');
+    mongoose.connection.close();
   }
-}
+};
 
-updateInvoiceUsers();
+updateUserOnInvoices();

@@ -68,7 +68,7 @@ export default function LatestInvoices() {
               >
                 <div className="flex items-center">
                   <Image
-                    src={`/images${invoice.image_url}`}
+                    src={`${process.env.NEXT_PUBLIC_API_BASE}/images${invoice.image_url}`}
                     alt={`${invoice.name}'s profile picture`}
                     className="mr-4 rounded-full"
                     width={32}
