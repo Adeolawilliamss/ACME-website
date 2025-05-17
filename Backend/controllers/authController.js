@@ -27,7 +27,6 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: 'None',
-    domain: 'acme-website-115r.onrender.com',
   });
 
   // Set refresh token in a separate cookie
@@ -36,7 +35,6 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: 'None',
-    domain: 'acme-website-115r.onrender.com',
   });
 
   user.password = undefined; // Hide password in response
@@ -58,8 +56,6 @@ exports.refreshToken = catchAsync(async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
-    console.log('Decoded JWT:', decoded); // Debugging
-
     const user = await User.findById(decoded.id);
     if (!user) {
       return next(new AppError('User not found', 403));
@@ -124,7 +120,6 @@ exports.login = catchAsync(async (req, res, next) => {
 });
 
 exports.protect = catchAsync(async (req, res, next) => {
-  console.log('🔍 Protect Middleware Triggered on:', req.path); // Debugging
   //1}Getting token and checking if its there
   let token;
   if (

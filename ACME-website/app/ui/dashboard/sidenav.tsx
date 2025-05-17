@@ -26,13 +26,11 @@ export default function SideNav() {
   const chatPage = async () => {
     try {
       const response = await axiosInstance.get(`/users/isLoggedIn`);
-
       const user = response.data.data.user;
-
       if (user.role === "Admin") {
-        router.push("/dashboard/chatPage"); // Admin can select users from chatPage
+        router.push("/dashboard/chatPage");
       } else {
-        router.push(`/dashboard/chatPage?userId=${user.id}`); // Normal user
+        router.push(`/dashboard/chatPage?userId=${user.id}`);
       }
     } catch (err) {
       console.log("Redirect to chat page failed:", err);
@@ -40,39 +38,57 @@ export default function SideNav() {
   };
 
   return (
-    <div className="flex h-full flex-col px-3 py-4 md:px-2">
-      <Link
-        className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
-        href="/"
-      >
-        <div className="w-32 text-white md:w-40">
-          <AcmeLogo />
-        </div>
-      </Link>
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
-        <NavLinks />
-        <div className="hidden h-auto w-full grow rounded-md bg-gray-50 dark:bg-black md:block"></div>
-
-        <div className=" flex pt-4 border-t justify-between mt-4 space-x-2 md:flex-col md:space-x-0 md:space-y-2 border-gray-200 dark:border-gray-700">
+    <>
+      {/* Sidebar for md+ */}
+      <aside className="hidden md:flex md:flex-col md:w-64 md:h-screen md:shadow-lg md:bg-white dark:md:bg-gray-900">
+        <Link
+          href="/"
+          className="flex items-center justify-center h-20 bg-blue-600 p-4"
+        >
+          <div className="w-32 text-white">
+            <AcmeLogo />
+          </div>
+        </Link>
+        <nav className="flex-1 p-4 space-y-4 overflow-y-auto">
+          <NavLinks />
+        </nav>
+        <div className="p-4 space-y-4 border-t border-gray-200 dark:border-gray-700">
           <DarkMode />
+          <button
+            onClick={chatPage}
+            className="w-full flex items-center gap-2 px-4 py-3 rounded-lg bg-gray-50 hover:bg-sky-100"
+          >
+            <ChatBubbleBottomCenterIcon className="w-6" />
+            <span>Chat With Us</span>
+          </button>
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center gap-2 px-4 py-3 rounded-lg bg-gray-50 hover:bg-sky-100"
+          >
+            <PowerIcon className="w-6" />
+            <span>Sign Out</span>
+          </button>
         </div>
+      </aside>
 
+      {/* Bottom nav for mobile */}
+      <nav className="fixed bottom-0 left-0 right-0 flex justify-around items-center bg-white dark:bg-gray-900 shadow-t py-2 md:hidden">
+        <Link href="/" className="flex flex-col items-center">
+          <AcmeLogo />
+          <span className="text-xs mt-1">Home</span>
+        </Link>
         <button
           onClick={chatPage}
-          className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+          className="flex flex-col items-center"
         >
-          <ChatBubbleBottomCenterIcon className="w-6" />
-          <div className="hidden md:block">Chat With Us</div>
+          <ChatBubbleBottomCenterIcon className="w-6 h-6" />
+          <span className="text-xs mt-1">Chat</span>
         </button>
-
-        <button
-          onClick={handleLogout}
-          className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
-        >
-          <PowerIcon className="w-6" />
-          <div className="hidden md:block">Sign Out</div>
+        <button onClick={handleLogout} className="flex flex-col items-center">
+          <PowerIcon className="w-6 h-6" />
+          <span className="text-xs mt-1">Logout</span>
         </button>
-      </div>
-    </div>
+      </nav>
+    </>
   );
 }
