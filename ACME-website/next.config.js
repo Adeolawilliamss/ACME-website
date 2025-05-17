@@ -7,7 +7,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'acme-website-115r.onrender.com',
+        hostname: 'https://acme-website-putv.onrender.com',
         port: '',
         pathname: '/images/**',
       },
